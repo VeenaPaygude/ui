@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+</script>
+<style>
+* {
+	box-sizing: border-box;
+}
+div {
+    display: block;
+}
+body {
+	font-family: Arial;
+	padding: 10px;
+	background: white;
+}
+
+/* Header/Blog Title */
+.header {
+	padding: 10px;
+	text-align: left;
+	background: white;
+	width: 100%
+}
+
+.header h1 {
+	font-size: 50px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+	overflow: hidden;
+	background-color: white;
+	border-bottom: 0.05px solid #aeb4b6;
+}
+
+/* Style the topnav links */
+.topnav a {
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+	color: #30beed;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+	float: left;
+	width: 70%;
+}
+
+.left-float {
+	float: left;
+	align: left;
+}
+
+/* Right column */
+.rightcolumn {
+	float: left;
+	width: 30%;
+	background-color: white;
+	padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+	background-color: #aaa;
+	width: 100%;
+	padding: 20px;
+}
+/* logo image */
+.njrsLogo {
+	background-color: #aaa;
+	width: 20%;
+	padding: 0px;
+	margin-left: 0px
+}
+
+/* Add a card effect for articles */
+.card {
+	background-color: white;
+	padding: 20px;
+	margin-top: 20px;
+}
+
+.pagination-card {
+	background-color: white;
+	padding: 30px;
+	margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Footer */
+.footer {
+	padding: 20px;
+	text-align: center;
+	background: #ddd;
+	margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+	.leftcolumn, .rightcolumn {
+		width: 100%;
+		padding: 0;
+	}
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+	.topnav a {
+		float: none;
+		width: 100%;
+	}
+}
+
+body {
+	font-family: Arial;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+form.example input[type=text] {
+	padding: 10px;
+	font-size: 17px;
+	border: 1px solid grey;
+	float: left;
+	width: 80%;
+	background: #f1f1f1;
+}
+
+form.example button {
+	float: left;
+	width: 10%;
+	padding: 10px;
+	background: black;
+	color: white;
+	font-size: 17px;
+	border: 1px solid grey;
+	border-left: none;
+	cursor: pointer;
+}
+
+.dropbtn {
+	background-color: black;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+	background-color: #3e8e41;
+}
+
+#myInput {
+	box-sizing: border-box;
+	background-image: url('searchicon.png');
+	background-position: 14px 12px;
+	background-repeat: no-repeat;
+	font-size: 16px;
+	padding: 5px 8px 10px 30px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {
+	outline: 3px solid #ddd;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f6f6f6;
+	min-width: 210px;
+	overflow: auto;
+	border: 1px solid #ddd;
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown a:hover {
+	background-color: #ddd;
+}
+
+.show {
+	display: block;
+}
+</style>
+
+<body>
+
+	<div class="topnav">
+		<a class="njrsLogo"><p>
+				<img src="njrsLogo.png">
+			</p> <a href="#">Home</a> <a href="#">Search</a> <a href="#">Workflows</a>
+
+			<a href="#"> Dashboard</a> <a href="#"> More</a>
+	</div>
+	<div class="header">
+
+  <div class="row">
+    <div class="col-sm-8">
+   	<form class="example" action="/action_page.jsp">
+					<input type="text" placeholder="Search..." name="search">
+					<button type="submit">Find</button>
+				</form>
+    </div>
+    <div class="col-sm-1">
+     
+    </div>
+    <div class="col-sm-3">
+   <select class="search-select" id=metadata>
+													<option id="anywhere" value="anywhere">Generic Search</option>
+													<option id="keywords_new" value="keywords_new">Key Words</option> <!-- 23rd Mar 2018. Same as Appeal search -->
+													<option id="pan" value="pan">PAN</option>
+													<option id="casereferences_followed" value="casereferences_followed">Referred cases</option>
+													<option id="appealrefno" value="appealrefno">Case Number</option>			
+													<option id="appellantname" value="appellantname">Name of Parties</option>
+													<option id="infavourof" value="infavourof">In Favour of</option>
+													<option id="judgename" value="judgename">Name of the Judge</option>
+													<option id="section" value="section">Act/Section/Subsection</option>
+													<option id="njrscitation" value="njrscitation">Citations</option>
+												</select>
+    </div>
+  </div>
+</div>
+		<div class="pagination-card" style="width: 10rem;">
+			<nav aria-label="Pagination" float="left-float">
+
+				<ul class="pagination">
+					<li class="page-item"><a class="page-link" href="#"
+						aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+					</a></li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#"
+						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+					</a></li>
+				</ul>
+			</nav>
+		</div>
+		<!--<div class="left" >-->
+
+		<!--</div>-->
+		<div class="row">
+
+			<div class="leftcolumn">
+
+				<div class="card">45678</div>
+			</div>
+			<div class="rightcolumn">
+				<div class="card">
+					<div class="dropdown">
+						<input type="text" placeholder="Generic Search.." id="myInput"
+							onkeyup="filterFunction()">
+						<!--<button onclick="myFunction()" class="dropbtn" >Dropdown</button>-->
+						<button onclick="myFunction()"
+							class="btn btn-primary dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							<span class="caret"></span>
+						</button>
+						<div id="myDropdown" class="dropdown-content">
+
+							<a href="#about">About</a> <a href="#base">Base</a> <a
+								href="#blog">Blog</a> <a href="#contact">Contact</a> <a
+								href="#custom">Custom</a> <a href="#support">Support</a> <a
+								href="#tools">Tools</a>
+						</div>
+					</div>
+				</div>
+                <div class="panel panel-default" id="yui_patched_v3_11_0_1_1574921858183_187">
+							<!-- Keywords Change STARTED  -->
+							<!-- <div id="keywordsDiv"
+								style="overflow: visible;">
+								<h5 style="overflow: visible;">
+									<button  class="btn btn-default"  type="button" id="showKeywordsbtn" onclick="showFiltersAndFacets(); return false;" style="width: 100%;">Show Keywords</button>
+								</h5>
+							</div> -->
+					<!-- Keywords Change END -->
+						
+							<div class="panel-heading" id="yui_patched_v3_11_0_1_1574921858183_186">
+								<h5 class="panel-title strong" id="yui_patched_v3_11_0_1_1574921858183_185">
+									<a class="accordion-new active" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" id="yui_patched_v3_11_0_1_1574921858183_183" style="border-style: solid;
+  border-width: 1px; border-color:black"><i></i><h4 class="strong uppercase" style="color:black">Keywords</h4></a>
+								</h5>
+							</div>
+							<div id="collapse-1" class="panel-collapse collapse in" style="height: auto;">
+								<div class="panel-body" id="keywords_panel">
+									<!-- Bench list -->
+									<div class="widget margin-none">
+										<div class="widget-body list bg-gray" id="filtersDiv"><ul><li value="15334" id="0_opportunity of being heard_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="opportunity of being heard" data-toggle="tooltip" data-original-title="opportunity of being heard" onclick="filterKeywords(this.id)">opportunity of being.... </a> <span class="badge badge-default">15334</span></li><li value="15168" id="0_tax effect_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="tax effect" data-toggle="tooltip" data-original-title="tax effect" onclick="filterKeywords(this.id)">tax effect</a> <span class="badge badge-default">15168</span></li><li value="13254" id="0_reasonable opportunity_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="reasonable opportunity" data-toggle="tooltip" data-original-title="reasonable opportunity" onclick="filterKeywords(this.id)">reasonable opportuni.... </a> <span class="badge badge-default">13254</span></li><li value="11376" id="0_capital gain_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="capital gain" data-toggle="tooltip" data-original-title="capital gain" onclick="filterKeywords(this.id)">capital gain</a> <span class="badge badge-default">11376</span></li><li value="10827" id="0_undisclosed income_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="undisclosed income" data-toggle="tooltip" data-original-title="undisclosed income" onclick="filterKeywords(this.id)">undisclosed income</a> <span class="badge badge-default">10827</span></li><li value="9567" id="0_monetary limit_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="monetary limit" data-toggle="tooltip" data-original-title="monetary limit" onclick="filterKeywords(this.id)">monetary limit</a> <span class="badge badge-default">9567</span></li><li value="8790" id="0_interest income_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="interest income" data-toggle="tooltip" data-original-title="interest income" onclick="filterKeywords(this.id)">interest income</a> <span class="badge badge-default">8790</span></li><li value="8611" id="0_capital asset_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="capital asset" data-toggle="tooltip" data-original-title="capital asset" onclick="filterKeywords(this.id)">capital asset</a> <span class="badge badge-default">8611</span></li><li value="8600" id="0_sale consideration_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="sale consideration" data-toggle="tooltip" data-original-title="sale consideration" onclick="filterKeywords(this.id)">sale consideration</a> <span class="badge badge-default">8600</span></li><li value="8327" id="0_additional evidence_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="additional evidence" data-toggle="tooltip" data-original-title="additional evidence" onclick="filterKeywords(this.id)">additional evidence.... </a> <span class="badge badge-default">8327</span></li><li value="7890" id="0_capital expenditure_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="capital expenditure" data-toggle="tooltip" data-original-title="capital expenditure" onclick="filterKeywords(this.id)">capital expenditure.... </a> <span class="badge badge-default">7890</span></li><li value="7677" id="0_computation of income_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="computation of income" data-toggle="tooltip" data-original-title="computation of income" onclick="filterKeywords(this.id)">computation of incom.... </a> <span class="badge badge-default">7677</span></li><li value="7644" id="0_disallowance of interest_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="disallowance of interest" data-toggle="tooltip" data-original-title="disallowance of interest" onclick="filterKeywords(this.id)">disallowance of inte.... </a> <span class="badge badge-default">7644</span></li><li value="7049" id="0_special bench_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="special bench" data-toggle="tooltip" data-original-title="special bench" onclick="filterKeywords(this.id)">special bench</a> <span class="badge badge-default">7049</span></li><li value="7021" id="0_concealment of income_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="concealment of income" data-toggle="tooltip" data-original-title="concealment of income" onclick="filterKeywords(this.id)">concealment of incom.... </a> <span class="badge badge-default">7021</span></li><li value="6998" id="0_revenue authorities_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="revenue authorities" data-toggle="tooltip" data-original-title="revenue authorities" onclick="filterKeywords(this.id)">revenue authorities.... </a> <span class="badge badge-default">6998</span></li><li value="6962" id="0_imposition of penalty_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="imposition of penalty" data-toggle="tooltip" data-original-title="imposition of penalty" onclick="filterKeywords(this.id)">imposition of penalt.... </a> <span class="badge badge-default">6962</span></li><li value="6846" id="0_reason to believe_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="reason to believe" data-toggle="tooltip" data-original-title="reason to believe" onclick="filterKeywords(this.id)">reason to believe</a> <span class="badge badge-default">6846</span></li><li value="6837" id="0_interest paid_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="interest paid" data-toggle="tooltip" data-original-title="interest paid" onclick="filterKeywords(this.id)">interest paid</a> <span class="badge badge-default">6837</span></li><li value="6830" id="0_reassessment proceedings_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="reassessment proceedings" data-toggle="tooltip" data-original-title="reassessment proceedings" onclick="filterKeywords(this.id)">reassessment proceed.... </a> <span class="badge badge-default">6830</span></li><li value="6665" id="0_revenue expenditure_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="revenue expenditure" data-toggle="tooltip" data-original-title="revenue expenditure" onclick="filterKeywords(this.id)">revenue expenditure.... </a> <span class="badge badge-default">6665</span></li><li value="6658" id="0_returned income_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="returned income" data-toggle="tooltip" data-original-title="returned income" onclick="filterKeywords(this.id)">returned income</a> <span class="badge badge-default">6658</span></li><li value="6644" id="0_business activity_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="business activity" data-toggle="tooltip" data-original-title="business activity" onclick="filterKeywords(this.id)">business activity</a> <span class="badge badge-default">6644</span></li><li value="6522" id="0_additional ground_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="additional ground" data-toggle="tooltip" data-original-title="additional ground" onclick="filterKeywords(this.id)">additional ground</a> <span class="badge badge-default">6522</span></li><li value="6379" id="0_unexplained investment_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="unexplained investment" data-toggle="tooltip" data-original-title="unexplained investment" onclick="filterKeywords(this.id)">unexplained investme.... </a> <span class="badge badge-default">6379</span></li><li value="6345" id="0_income from business_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="income from business" data-toggle="tooltip" data-original-title="income from business" onclick="filterKeywords(this.id)">income from business.... </a> <span class="badge badge-default">6345</span></li><li value="6179" id="0_condonation of delay_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="condonation of delay" data-toggle="tooltip" data-original-title="condonation of delay" onclick="filterKeywords(this.id)">condonation of delay.... </a> <span class="badge badge-default">6179</span></li><li value="5965" id="0_agricultural income_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="agricultural income" data-toggle="tooltip" data-original-title="agricultural income" onclick="filterKeywords(this.id)">agricultural income.... </a> <span class="badge badge-default">5965</span></li><li value="5724" id="0_source of income_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="source of income" data-toggle="tooltip" data-original-title="source of income" onclick="filterKeywords(this.id)">source of income</a> <span class="badge badge-default">5724</span></li><li value="5656" id="0_business premises_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="business premises" data-toggle="tooltip" data-original-title="business premises" onclick="filterKeywords(this.id)">business premises</a> <span class="badge badge-default">5656</span></li><li value="5596" id="0_method of accounting_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="method of accounting" data-toggle="tooltip" data-original-title="method of accounting" onclick="filterKeywords(this.id)">method of accounting.... </a> <span class="badge badge-default">5596</span></li><li value="5593" id="0_penalty_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="penalty" data-toggle="tooltip" data-original-title="penalty" onclick="filterKeywords(this.id)">penalty</a> <span class="badge badge-default">5593</span></li><li value="5554" id="0_original return_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="original return" data-toggle="tooltip" data-original-title="original return" onclick="filterKeywords(this.id)">original return</a> <span class="badge badge-default">5554</span></li><li value="5533" id="0_interest expenditure_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="interest expenditure" data-toggle="tooltip" data-original-title="interest expenditure" onclick="filterKeywords(this.id)">interest expenditure.... </a> <span class="badge badge-default">5533</span></li><li value="5525" id="0_written off_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="written off" data-toggle="tooltip" data-original-title="written off" onclick="filterKeywords(this.id)">written off</a> <span class="badge badge-default">5525</span></li><li value="5508" id="0_share capital_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="share capital" data-toggle="tooltip" data-original-title="share capital" onclick="filterKeywords(this.id)">share capital</a> <span class="badge badge-default">5508</span></li><li value="5458" id="0_plant and machinery_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="plant and machinery" data-toggle="tooltip" data-original-title="plant and machinery" onclick="filterKeywords(this.id)">plant and machinery.... </a> <span class="badge badge-default">5458</span></li><li value="5343" id="0_issue of notice_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="issue of notice" data-toggle="tooltip" data-original-title="issue of notice" onclick="filterKeywords(this.id)">issue of notice</a> <span class="badge badge-default">5343</span></li><li value="5306" id="0_levy of interest_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="levy of interest" data-toggle="tooltip" data-original-title="levy of interest" onclick="filterKeywords(this.id)">levy of interest</a> <span class="badge badge-default">5306</span></li><li value="5204" id="0_immovable property_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="immovable property" data-toggle="tooltip" data-original-title="immovable property" onclick="filterKeywords(this.id)">immovable property</a> <span class="badge badge-default">5204</span></li><li value="5190" id="0_business expenditure_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="business expenditure" data-toggle="tooltip" data-original-title="business expenditure" onclick="filterKeywords(this.id)">business expenditure.... </a> <span class="badge badge-default">5190</span></li><li value="5158" id="0_payment of interest_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="payment of interest" data-toggle="tooltip" data-original-title="payment of interest" onclick="filterKeywords(this.id)">payment of interest.... </a> <span class="badge badge-default">5158</span></li><li value="5048" id="0_income from house property_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="income from house property" data-toggle="tooltip" data-original-title="income from house property" onclick="filterKeywords(this.id)">income from house pr.... </a> <span class="badge badge-default">5048</span></li><li value="4948" id="0_capital account_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="capital account" data-toggle="tooltip" data-original-title="capital account" onclick="filterKeywords(this.id)">capital account</a> <span class="badge badge-default">4948</span></li><li value="4938" id="0_income chargeable to tax_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="income chargeable to tax" data-toggle="tooltip" data-original-title="income chargeable to tax" onclick="filterKeywords(this.id)">income chargeable to.... </a> <span class="badge badge-default">4938</span></li><li value="4908" id="0_closing stock_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="closing stock" data-toggle="tooltip" data-original-title="closing stock" onclick="filterKeywords(this.id)">closing stock</a> <span class="badge badge-default">4908</span></li><li value="4886" id="0_total turnover_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="total turnover" data-toggle="tooltip" data-original-title="total turnover" onclick="filterKeywords(this.id)">total turnover</a> <span class="badge badge-default">4886</span></li><li value="4868" id="0_reopening of assessment_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="reopening of assessment" data-toggle="tooltip" data-original-title="reopening of assessment" onclick="filterKeywords(this.id)">reopening of assessm.... </a> <span class="badge badge-default">4868</span></li><li value="4788" id="0_fair market value_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="fair market value" data-toggle="tooltip" data-original-title="fair market value" onclick="filterKeywords(this.id)">fair market value</a> <span class="badge badge-default">4788</span></li><li value="4762" id="0_audit report_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="audit report" data-toggle="tooltip" data-original-title="audit report" onclick="filterKeywords(this.id)">audit report</a> <span class="badge badge-default">4762</span></li><li value="4688" id="0_business or profession_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="business or profession" data-toggle="tooltip" data-original-title="business or profession" onclick="filterKeywords(this.id)">business or professi.... </a> <span class="badge badge-default">4688</span></li><li value="4681" id="0_unexplained cash credit_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="unexplained cash credit" data-toggle="tooltip" data-original-title="unexplained cash credit" onclick="filterKeywords(this.id)">unexplained cash cre.... </a> <span class="badge badge-default">4681</span></li><li value="4605" id="0_commission_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="commission" data-toggle="tooltip" data-original-title="commission" onclick="filterKeywords(this.id)">commission</a> <span class="badge badge-default">4605</span></li><li value="4564" id="0_principles of natural justice_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="principles of natural justice" data-toggle="tooltip" data-original-title="principles of natural justice" onclick="filterKeywords(this.id)">principles of natura.... </a> <span class="badge badge-default">4564</span></li><li value="4540" id="0_rental income_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="rental income" data-toggle="tooltip" data-original-title="rental income" onclick="filterKeywords(this.id)">rental income</a> <span class="badge badge-default">4540</span></li><li value="4540" id="0_sister concern_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="sister concern" data-toggle="tooltip" data-original-title="sister concern" onclick="filterKeywords(this.id)">sister concern</a> <span class="badge badge-default">4540</span></li><li value="4530" id="0_cost of acquisition_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="cost of acquisition" data-toggle="tooltip" data-original-title="cost of acquisition" onclick="filterKeywords(this.id)">cost of acquisition.... </a> <span class="badge badge-default">4530</span></li><li value="4496" id="0_sales tax_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="sales tax" data-toggle="tooltip" data-original-title="sales tax" onclick="filterKeywords(this.id)">sales tax</a> <span class="badge badge-default">4496</span></li><li value="4485" id="0_issuance of notice_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="issuance of notice" data-toggle="tooltip" data-original-title="issuance of notice" onclick="filterKeywords(this.id)">issuance of notice</a> <span class="badge badge-default">4485</span></li><li value="4445" id="0_regular assessment_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="regular assessment" data-toggle="tooltip" data-original-title="regular assessment" onclick="filterKeywords(this.id)">regular assessment</a> <span class="badge badge-default">4445</span></li><li value="4387" id="0_business loss_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="business loss" data-toggle="tooltip" data-original-title="business loss" onclick="filterKeywords(this.id)">business loss</a> <span class="badge badge-default">4387</span></li><li value="4326" id="0_sale price_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="sale price" data-toggle="tooltip" data-original-title="sale price" onclick="filterKeywords(this.id)">sale price</a> <span class="badge badge-default">4326</span></li><li value="4324" id="0_market value_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="market value" data-toggle="tooltip" data-original-title="market value" onclick="filterKeywords(this.id)">market value</a> <span class="badge badge-default">4324</span></li><li value="4268" id="0_deduction of tax at source_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="deduction of tax at source" data-toggle="tooltip" data-original-title="deduction of tax at source" onclick="filterKeywords(this.id)">deduction of tax at .... </a> <span class="badge badge-default">4268</span></li><li value="4259" id="0_state government_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="state government" data-toggle="tooltip" data-original-title="state government" onclick="filterKeywords(this.id)">state government</a> <span class="badge badge-default">4259</span></li><li value="4230" id="0_ex-parte order_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="ex-parte order" data-toggle="tooltip" data-original-title="ex-parte order" onclick="filterKeywords(this.id)">ex-parte order</a> <span class="badge badge-default">4230</span></li><li value="4225" id="0_additional income_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="additional income" data-toggle="tooltip" data-original-title="additional income" onclick="filterKeywords(this.id)">additional income</a> <span class="badge badge-default">4225</span></li><li value="4211" id="0_raw material_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="raw material" data-toggle="tooltip" data-original-title="raw material" onclick="filterKeywords(this.id)">raw material</a> <span class="badge badge-default">4211</span></li><li value="4161" id="0_outstanding demand_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="outstanding demand" data-toggle="tooltip" data-original-title="outstanding demand" onclick="filterKeywords(this.id)">outstanding demand</a> <span class="badge badge-default">4161</span></li><li value="4148" id="0_payment of tax_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="payment of tax" data-toggle="tooltip" data-original-title="payment of tax" onclick="filterKeywords(this.id)">payment of tax</a> <span class="badge badge-default">4148</span></li><li value="4141" id="0_change of opinion_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="change of opinion" data-toggle="tooltip" data-original-title="change of opinion" onclick="filterKeywords(this.id)">change of opinion</a> <span class="badge badge-default">4141</span></li><li value="4058" id="0_search and seizure_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="search and seizure" data-toggle="tooltip" data-original-title="search and seizure" onclick="filterKeywords(this.id)">search and seizure</a> <span class="badge badge-default">4058</span></li><li value="4056" id="0_assessment proceeding_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="assessment proceeding" data-toggle="tooltip" data-original-title="assessment proceeding" onclick="filterKeywords(this.id)">assessment proceedin.... </a> <span class="badge badge-default">4056</span></li><li value="4048" id="0_sale deed_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="sale deed" data-toggle="tooltip" data-original-title="sale deed" onclick="filterKeywords(this.id)">sale deed</a> <span class="badge badge-default">4048</span></li><li value="4025" id="0_service of notice_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="service of notice" data-toggle="tooltip" data-original-title="service of notice" onclick="filterKeywords(this.id)">service of notice</a> <span class="badge badge-default">4025</span></li><li value="4022" id="0_search and seizure operation_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="search and seizure operation" data-toggle="tooltip" data-original-title="search and seizure operation" onclick="filterKeywords(this.id)">search and seizure o.... </a> <span class="badge badge-default">4022</span></li><li value="3979" id="0_unexplained cash_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="unexplained cash" data-toggle="tooltip" data-original-title="unexplained cash" onclick="filterKeywords(this.id)">unexplained cash</a> <span class="badge badge-default">3979</span></li><li value="3922" id="0_fresh assessment_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="fresh assessment" data-toggle="tooltip" data-original-title="fresh assessment" onclick="filterKeywords(this.id)">fresh assessment</a> <span class="badge badge-default">3922</span></li><li value="3834" id="0_depreciation_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="depreciation" data-toggle="tooltip" data-original-title="depreciation" onclick="filterKeywords(this.id)">depreciation</a> <span class="badge badge-default">3834</span></li><li value="3833" id="0_speaking order_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="speaking order" data-toggle="tooltip" data-original-title="speaking order" onclick="filterKeywords(this.id)">speaking order</a> <span class="badge badge-default">3833</span></li><li value="3713" id="0_industrial undertaking_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="industrial undertaking" data-toggle="tooltip" data-original-title="industrial undertaking" onclick="filterKeywords(this.id)">industrial undertaki.... </a> <span class="badge badge-default">3713</span></li><li value="3703" id="0_levy of penalty_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="levy of penalty" data-toggle="tooltip" data-original-title="levy of penalty" onclick="filterKeywords(this.id)">levy of penalty</a> <span class="badge badge-default">3703</span></li><li value="3637" id="0_valuation report_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="valuation report" data-toggle="tooltip" data-original-title="valuation report" onclick="filterKeywords(this.id)">valuation report</a> <span class="badge badge-default">3637</span></li><li value="3636" id="0_disallowance of depreciation_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="disallowance of depreciation" data-toggle="tooltip" data-original-title="disallowance of depreciation" onclick="filterKeywords(this.id)">disallowance of depr.... </a> <span class="badge badge-default">3636</span></li><li value="3623" id="0_return of income_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="return of income" data-toggle="tooltip" data-original-title="return of income" onclick="filterKeywords(this.id)">return of income</a> <span class="badge badge-default">3623</span></li><li value="3618" id="0_deduct tax at source_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="deduct tax at source" data-toggle="tooltip" data-original-title="deduct tax at source" onclick="filterKeywords(this.id)">deduct tax at source.... </a> <span class="badge badge-default">3618</span></li><li value="3609" id="0_period of limitation_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="period of limitation" data-toggle="tooltip" data-original-title="period of limitation" onclick="filterKeywords(this.id)">period of limitation.... </a> <span class="badge badge-default">3609</span></li><li value="3592" id="0_stay petition_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="stay petition" data-toggle="tooltip" data-original-title="stay petition" onclick="filterKeywords(this.id)">stay petition</a> <span class="badge badge-default">3592</span></li><li value="3580" id="0_order of assessment_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="order of assessment" data-toggle="tooltip" data-original-title="order of assessment" onclick="filterKeywords(this.id)">order of assessment.... </a> <span class="badge badge-default">3580</span></li><li value="3578" id="0_natural justice_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="natural justice" data-toggle="tooltip" data-original-title="natural justice" onclick="filterKeywords(this.id)">natural justice</a> <span class="badge badge-default">3578</span></li><li value="3572" id="0_partnership firm_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="partnership firm" data-toggle="tooltip" data-original-title="partnership firm" onclick="filterKeywords(this.id)">partnership firm</a> <span class="badge badge-default">3572</span></li><li value="3550" id="0_house property_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="house property" data-toggle="tooltip" data-original-title="house property" onclick="filterKeywords(this.id)">house property</a> <span class="badge badge-default">3550</span></li><li value="3533" id="0_stock-in-trade_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="stock-in-trade" data-toggle="tooltip" data-original-title="stock-in-trade" onclick="filterKeywords(this.id)">stock-in-trade</a> <span class="badge badge-default">3533</span></li><li value="3532" id="0_barred by limitation_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="barred by limitation" data-toggle="tooltip" data-original-title="barred by limitation" onclick="filterKeywords(this.id)">barred by limitation.... </a> <span class="badge badge-default">3532</span></li><li value="3520" id="0_mercantile system of accounting_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="mercantile system of accounting" data-toggle="tooltip" data-original-title="mercantile system of accounting" onclick="filterKeywords(this.id)">mercantile system of.... </a> <span class="badge badge-default">3520</span></li><li value="3518" id="0_condition precedent_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="condition precedent" data-toggle="tooltip" data-original-title="condition precedent" onclick="filterKeywords(this.id)">condition precedent.... </a> <span class="badge badge-default">3518</span></li><li value="3504" id="0_business of trading_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="business of trading" data-toggle="tooltip" data-original-title="business of trading" onclick="filterKeywords(this.id)">business of trading.... </a> <span class="badge badge-default">3504</span></li><li value="3501" id="0_income returned_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="income returned" data-toggle="tooltip" data-original-title="income returned" onclick="filterKeywords(this.id)">income returned</a> <span class="badge badge-default">3501</span></li><li value="3497" id="0_block assessment_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="block assessment" data-toggle="tooltip" data-original-title="block assessment" onclick="filterKeywords(this.id)">block assessment</a> <span class="badge badge-default">3497</span></li><li value="3454" id="0_unsecured loan_Keywords" onclick="onChangeOfKeyword(this.id)"><a href="#" id="unsecured loan" data-toggle="tooltip" data-original-title="unsecured loan" onclick="filterKeywords(this.id)">unsecured loan</a> <span class="badge badge-default">3454</span></li></ul></div>
+									</div>
+								</div>
+							</div>
+						</div>
+				<div class="panel-group" style="border-style: solid;  border-width: 1px;">
+   <div class="widget widget-heading-simple widget-body-white" id="yui_patched_v3_11_0_1_1574921858183_190">
+			<div class="widget-body" id="yui_patched_v3_11_0_1_1574921858183_189">
+				<div class="widget-body" id="yui_patched_v3_11_0_1_1574921858183_337">
+				<div class="widget widget-heading-simple widget-body-gray">
+					<div class="widget-head">
+						<h4 class="strong uppercase">Filters</h4>
+					</div>
+				</div>
+								<!-- <div class="widget widget-heading-simple widget-body-white">
+										<div class="widget-head" id="authority">
+											<h5>Court/Tribunal</h5>
+										</div>
+										<div class="widget margin-none">                                
+											<div class="widget-body list bg-gray" id="filtersAuthorityDiv"></div>
+										</div>
+								</div> -->
+								<div class="panel-group accordion accordion-1" id="accordion">
+									<div class="panel panel-default" id="yui_patched_v3_11_0_1_1574921858183_336">
+										<div class="panel-heading" id="yui_patched_v3_11_0_1_1574921858183_335">
+											<h5 class="panel-title strong" id="yui_patched_v3_11_0_1_1574921858183_334">
+												<a class="accordion-new active" data-toggle="collapse" data-parent="#accordion" href="#collapseCourtTribunal" id="yui_patched_v3_11_0_1_1574921858183_333"><i></i>Court/Tribunal</a>
+											</h5>
+										</div>
+			
+			
+										<div id="collapseCourtTribunal" class="panel-collapse collapse in" style="height: auto;">
+											<div class="panel-body" id="keywords_panel">
+												<!-- Bench list -->
+												<div class="widget margin-none">
+													<div class="widget-body list bg-gray" id="filtersAuthorityDiv"><ul><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="ITAT"><input type="checkbox" value="ITAT" id="0_ITAT_Court/Tribunal" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="authority(this.id)" id="authority_0" class="fa fa-fw fa-square-o "><span hidden="true">ITAT</span></i>ITAT<span class="badge  badge-default">195222</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="HC"><input type="checkbox" value="HC" id="1_HC_Court/Tribunal" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="authority(this.id)" id="authority_1" class="fa fa-fw fa-square-o "><span hidden="true">HC</span></i>HC<span class="badge  badge-default">68631</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Notification"><input type="checkbox" value="Notification" id="2_Notification_Court/Tribunal" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="authority(this.id)" id="authority_2" class="fa fa-fw fa-square-o "><span hidden="true">Notification</span></i>Notification<span class="badge  badge-default">8695</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="SC"><input type="checkbox" value="SC" id="3_SC_Court/Tribunal" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="authority(this.id)" id="authority_3" class="fa fa-fw fa-square-o "><span hidden="true">SC</span></i>SC<span class="badge  badge-default">6462</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Circular"><input type="checkbox" value="Circular" id="4_Circular_Court/Tribunal" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="authority(this.id)" id="authority_4" class="fa fa-fw fa-square-o "><span hidden="true">Circular</span></i>Circular<span class="badge  badge-default">675</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="AAR"><input type="checkbox" value="AAR" id="5_AAR_Court/Tribunal" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="authority(this.id)" id="authority_5" class="fa fa-fw fa-square-o "><span hidden="true">AAR</span></i>AAR<span class="badge  badge-default">439</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Instruction"><input type="checkbox" value="Instruction" id="6_Instruction_Court/Tribunal" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="authority(this.id)" id="authority_6" class="fa fa-fw fa-square-o "><span hidden="true">Instruction</span></i>Instruction<span class="badge  badge-default">70</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Others"><input type="checkbox" value="Others" id="7_Others_Court/Tribunal" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="authority(this.id)" id="authority_7" class="fa fa-fw fa-square-o "><span hidden="true">Others</span></i>Others<span class="badge  badge-default">65</span></label></li></ul></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- <div class="widget widget-heading-simple widget-body-white">
+										<div class="widget-head" id="authority">
+											<h5>Act</h5>
+										</div>
+										<div class="widget margin-none">                                
+											<div class="widget-body list bg-gray" id="filtersRelevantActDiv"></div>
+										</div>
+								</div> -->
+								<div class="panel-group accordion accordion-1" id="accordion">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h5 class="panel-title strong">
+												<a class="accordion-new" data-toggle="collapse" data-parent="#accordion" href="#collapseAct"><i></i>Act</a>
+											</h5>
+										</div>
+			
+			
+										<div id="collapseAct" class="panel-collapse collapse">
+											<div class="panel-body" id="keywords_panel">
+												<!-- Bench list -->
+												<div class="widget margin-none">
+													<div class="widget-body list bg-gray" id="filtersRelevantActDiv"><ul><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Income-tax"><input type="checkbox" value="Income-tax" id="0_Income-tax_Act" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkAct(this.id)" id="act_0" class="fa fa-fw fa-square-o "><span hidden="true">Income-tax</span></i>Income-tax<span class="badge badge-default">276122</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Wealth-tax"><input type="checkbox" value="Wealth-tax" id="1_Wealth-tax_Act" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkAct(this.id)" id="act_1" class="fa fa-fw fa-square-o "><span hidden="true">Wealth-tax</span></i>Wealth-tax<span class="badge badge-default">3793</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Gift-tax"><input type="checkbox" value="Gift-tax" id="2_Gift-tax_Act" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkAct(this.id)" id="act_2" class="fa fa-fw fa-square-o "><span hidden="true">Gift-tax</span></i>Gift-tax<span class="badge badge-default">226</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Other Acts"><input type="checkbox" value="Other Acts" id="3_Other Acts_Act" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkAct(this.id)" id="act_3" class="fa fa-fw fa-square-o "><span hidden="true">Other Acts</span></i>Other Acts<span class="badge badge-default">118</span></label></li></ul></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- <div class="widget widget-heading-simple widget-body-white">
+										<div class="widget-head" id="authority">
+											<h5>In Favour Of</h5>
+										</div>
+										<div class="widget margin-none">                                
+											<div class="widget-body list bg-gray" id="filtersInFavorOfDiv"></div>
+										</div>
+								</div> -->
+								<div class="panel-group accordion accordion-1" id="accordion">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h5 class="panel-title strong">
+												<a class="accordion-new" data-toggle="collapse" data-parent="#accordion" href="#collapseInFavorOf"><i></i>In Favour Of</a>
+											</h5>
+										</div>
+			
+			
+										<div id="collapseInFavorOf" class="panel-collapse collapse">
+											<div class="panel-body" id="keywords_panel">
+												<!-- Bench list -->
+												<div class="widget margin-none">
+													<div class="widget-body list bg-gray" id="filtersInFavorOfDiv"><ul><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Assessee"><input type="checkbox" value="Assessee" id="0_Assessee_In Favour Of" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkInFavour(this.id)" id="infavour_0" class="fa fa-fw fa-square-o "><span hidden="true">Assessee</span></i> Assessee<span class="badge badge-default">137542</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Revenue"><input type="checkbox" value="Revenue" id="1_Revenue_In Favour Of" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkInFavour(this.id)" id="infavour_1" class="fa fa-fw fa-square-o "><span hidden="true">Revenue</span></i> Revenue<span class="badge badge-default">51420</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Partly in favour of assessee/Partly in favour of revenue"><input type="checkbox" value="Partly in favour of assessee/Partly in favour of revenue" id="2_Partly in favour of assessee/Partly in favour of revenue_In Favour Of" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkInFavour(this.id)" id="infavour_2" class="fa fa-fw fa-square-o "><span hidden="true">Partly in favour of assessee/Partly in favour of revenue</span></i> Partly in favour of <span class="badge badge-default">39830</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Returned unanswered"><input type="checkbox" value="Returned unanswered" id="3_Returned unanswered_In Favour Of" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkInFavour(this.id)" id="infavour_3" class="fa fa-fw fa-square-o "><span hidden="true">Returned unanswered</span></i> Returned unanswered<span class="badge badge-default">21014</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Matter remanded"><input type="checkbox" value="Matter remanded" id="4_Matter remanded_In Favour Of" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkInFavour(this.id)" id="infavour_4" class="fa fa-fw fa-square-o "><span hidden="true">Matter remanded</span></i> Matter remanded<span class="badge badge-default">19552</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="NA"><input type="checkbox" value="NA" id="5_NA_In Favour Of" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkInFavour(this.id)" id="infavour_5" class="fa fa-fw fa-square-o "><span hidden="true">NA</span></i> NA<span class="badge badge-default">9502</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Respondent"><input type="checkbox" value="Respondent" id="6_Respondent_In Favour Of" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkInFavour(this.id)" id="infavour_6" class="fa fa-fw fa-square-o "><span hidden="true">Respondent</span></i> Respondent<span class="badge badge-default">534</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Petitioner/Plaintiff"><input type="checkbox" value="Petitioner/Plaintiff" id="7_Petitioner/Plaintiff_In Favour Of" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkInFavour(this.id)" id="infavour_7" class="fa fa-fw fa-square-o "><span hidden="true">Petitioner/Plaintiff</span></i> Petitioner/Plaintiff<span class="badge badge-default">316</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Admission stage"><input type="checkbox" value="Admission stage" id="8_Admission stage_In Favour Of" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkInFavour(this.id)" id="infavour_8" class="fa fa-fw fa-square-o "><span hidden="true">Admission stage</span></i> Admission stage<span class="badge badge-default">34</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Matter referred to Larger Bench"><input type="checkbox" value="Matter referred to Larger Bench" id="9_Matter referred to Larger Bench_In Favour Of" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkInFavour(this.id)" id="infavour_9" class="fa fa-fw fa-square-o "><span hidden="true">Matter referred to Larger Bench</span></i> Matter referred to L<span class="badge badge-default">32</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Interim order"><input type="checkbox" value="Interim order" id="10_Interim order_In Favour Of" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkInFavour(this.id)" id="infavour_10" class="fa fa-fw fa-square-o "><span hidden="true">Interim order</span></i> Interim order<span class="badge badge-default">5</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Plaintiff"><input type="checkbox" value="Plaintiff" id="11_Plaintiff_In Favour Of" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="checkInFavour(this.id)" id="infavour_11" class="fa fa-fw fa-square-o "><span hidden="true">Plaintiff</span></i> Plaintiff<span class="badge badge-default">2</span></label></li></ul></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- <div class="widget widget-heading-simple widget-body-white">
+										<div class="widget-head" id="assessmentyear">
+											<h5>Assessment Year</h5>
+										</div>
+										<div class="widget margin-none">                                
+											<div class="widget-body list bg-gray" id="filterAssessmentYearDiv"></div>
+										</div>
+								</div> -->
+								<div class="panel-group accordion accordion-1" id="accordion">
+						<div class="panel panel-default">
+								<div class="panel-heading">
+								<h5 class="panel-title strong">
+									<a class="accordion-new" data-toggle="collapse" data-parent="#accordion" href="#collapseAssessmentYear"><i></i>Assessment Year</a>
+								</h5>
+							</div>
+							<div id="collapseAssessmentYear" class="panel-collapse collapse">
+								<div class="panel-body" id="keywords_panel">
+									<!-- Bench list -->
+									<div class="widget margin-none">
+										<div class="widget-body list bg-gray" id="filterAssessmentYearDiv"><ul><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2007-08"><input type="checkbox" value="2007-08" id="0_2007-08_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_0" class="fa fa-fw fa-square-o "><span hidden="true">2007-08</span></i> 2007-08<span class="badge badge-default">20647</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2006-07"><input type="checkbox" value="2006-07" id="1_2006-07_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_1" class="fa fa-fw fa-square-o "><span hidden="true">2006-07</span></i> 2006-07<span class="badge badge-default">20298</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2008-09"><input type="checkbox" value="2008-09" id="2_2008-09_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_2" class="fa fa-fw fa-square-o "><span hidden="true">2008-09</span></i> 2008-09<span class="badge badge-default">19701</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2009-10"><input type="checkbox" value="2009-10" id="3_2009-10_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_3" class="fa fa-fw fa-square-o "><span hidden="true">2009-10</span></i> 2009-10<span class="badge badge-default">19419</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2005-06"><input type="checkbox" value="2005-06" id="4_2005-06_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_4" class="fa fa-fw fa-square-o "><span hidden="true">2005-06</span></i> 2005-06<span class="badge badge-default">15079</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2010-11"><input type="checkbox" value="2010-11" id="5_2010-11_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_5" class="fa fa-fw fa-square-o "><span hidden="true">2010-11</span></i> 2010-11<span class="badge badge-default">12813</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2004-05"><input type="checkbox" value="2004-05" id="6_2004-05_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_6" class="fa fa-fw fa-square-o "><span hidden="true">2004-05</span></i> 2004-05<span class="badge badge-default">9855</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2011-12"><input type="checkbox" value="2011-12" id="7_2011-12_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_7" class="fa fa-fw fa-square-o "><span hidden="true">2011-12</span></i> 2011-12<span class="badge badge-default">8688</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2003-04"><input type="checkbox" value="2003-04" id="8_2003-04_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_8" class="fa fa-fw fa-square-o "><span hidden="true">2003-04</span></i> 2003-04<span class="badge badge-default">7637</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2012-13"><input type="checkbox" value="2012-13" id="9_2012-13_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_9" class="fa fa-fw fa-square-o "><span hidden="true">2012-13</span></i> 2012-13<span class="badge badge-default">6837</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2002-03"><input type="checkbox" value="2002-03" id="10_2002-03_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_10" class="fa fa-fw fa-square-o "><span hidden="true">2002-03</span></i> 2002-03<span class="badge badge-default">4896</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2001-02"><input type="checkbox" value="2001-02" id="11_2001-02_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_11" class="fa fa-fw fa-square-o "><span hidden="true">2001-02</span></i> 2001-02<span class="badge badge-default">4772</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2013-14"><input type="checkbox" value="2013-14" id="12_2013-14_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_12" class="fa fa-fw fa-square-o "><span hidden="true">2013-14</span></i> 2013-14<span class="badge badge-default">3873</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2014-15"><input type="checkbox" value="2014-15" id="13_2014-15_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_13" class="fa fa-fw fa-square-o "><span hidden="true">2014-15</span></i> 2014-15<span class="badge badge-default">2930</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2000-01"><input type="checkbox" value="2000-01" id="14_2000-01_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_14" class="fa fa-fw fa-square-o "><span hidden="true">2000-01</span></i> 2000-01<span class="badge badge-default">2403</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1998-99"><input type="checkbox" value="1998-99" id="15_1998-99_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_15" class="fa fa-fw fa-square-o "><span hidden="true">1998-99</span></i> 1998-99<span class="badge badge-default">1726</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1997-98"><input type="checkbox" value="1997-98" id="16_1997-98_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_16" class="fa fa-fw fa-square-o "><span hidden="true">1997-98</span></i> 1997-98<span class="badge badge-default">1414</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1996-97"><input type="checkbox" value="1996-97" id="17_1996-97_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_17" class="fa fa-fw fa-square-o "><span hidden="true">1996-97</span></i> 1996-97<span class="badge badge-default">1300</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1999-00"><input type="checkbox" value="1999-00" id="18_1999-00_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_18" class="fa fa-fw fa-square-o "><span hidden="true">1999-00</span></i> 1999-00<span class="badge badge-default">1262</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2015-16"><input type="checkbox" value="2015-16" id="19_2015-16_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_19" class="fa fa-fw fa-square-o "><span hidden="true">2015-16</span></i> 2015-16<span class="badge badge-default">1184</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1976-77"><input type="checkbox" value="1976-77" id="20_1976-77_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_20" class="fa fa-fw fa-square-o "><span hidden="true">1976-77</span></i> 1976-77<span class="badge badge-default">1134</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1975-76"><input type="checkbox" value="1975-76" id="21_1975-76_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_21" class="fa fa-fw fa-square-o "><span hidden="true">1975-76</span></i> 1975-76<span class="badge badge-default">1101</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1995-96"><input type="checkbox" value="1995-96" id="22_1995-96_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_22" class="fa fa-fw fa-square-o "><span hidden="true">1995-96</span></i> 1995-96<span class="badge badge-default">1086</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1977-78"><input type="checkbox" value="1977-78" id="23_1977-78_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_23" class="fa fa-fw fa-square-o "><span hidden="true">1977-78</span></i> 1977-78<span class="badge badge-default">1029</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1978-79"><input type="checkbox" value="1978-79" id="24_1978-79_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_24" class="fa fa-fw fa-square-o "><span hidden="true">1978-79</span></i> 1978-79<span class="badge badge-default">993</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1974-75"><input type="checkbox" value="1974-75" id="25_1974-75_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_25" class="fa fa-fw fa-square-o "><span hidden="true">1974-75</span></i> 1974-75<span class="badge badge-default">943</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1980-81"><input type="checkbox" value="1980-81" id="26_1980-81_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_26" class="fa fa-fw fa-square-o "><span hidden="true">1980-81</span></i> 1980-81<span class="badge badge-default">911</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1994-95"><input type="checkbox" value="1994-95" id="27_1994-95_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_27" class="fa fa-fw fa-square-o "><span hidden="true">1994-95</span></i> 1994-95<span class="badge badge-default">880</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1979-80"><input type="checkbox" value="1979-80" id="28_1979-80_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_28" class="fa fa-fw fa-square-o "><span hidden="true">1979-80</span></i> 1979-80<span class="badge badge-default">877</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1993-94"><input type="checkbox" value="1993-94" id="29_1993-94_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_29" class="fa fa-fw fa-square-o "><span hidden="true">1993-94</span></i> 1993-94<span class="badge badge-default">867</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1992-93"><input type="checkbox" value="1992-93" id="30_1992-93_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_30" class="fa fa-fw fa-square-o "><span hidden="true">1992-93</span></i> 1992-93<span class="badge badge-default">864</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1989-90"><input type="checkbox" value="1989-90" id="31_1989-90_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_31" class="fa fa-fw fa-square-o "><span hidden="true">1989-90</span></i> 1989-90<span class="badge badge-default">849</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="1973-74"><input type="checkbox" value="1973-74" id="32_1973-74_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_32" class="fa fa-fw fa-square-o "><span hidden="true">1973-74</span></i> 1973-74<span class="badge badge-default">840</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2005-2006"><input type="checkbox" value="2005-2006" id="33_2005-2006_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_33" class="fa fa-fw fa-square-o "><span hidden="true">2005-2006</span></i> 2005-2006<span class="badge badge-default">828</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="2004-2005"><input type="checkbox" value="2004-2005" id="34_2004-2005_Assessment Year" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="check(this.id)" id="Assess_34" class="fa fa-fw fa-square-o "><span hidden="true">2004-2005</span></i> 2004-2005<span class="badge badge-default">822</span></label></li></ul></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+								<!-- <div class="widget widget-heading-simple widget-body-white">
+										<div class="widget-head" id="sectionSubsection">
+												<h5>Section Subsection</h5>
+										</div>
+										<div class="widget margin-none">                                
+											<div class="widget-body list bg-gray" id="filtersSectionSubsectionDiv"></div>
+										</div>
+								</div> -->
+								<div class="panel-group accordion accordion-1" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h5 class="panel-title strong">
+									<a class="accordion-new" data-toggle="collapse" data-parent="#accordion" href="#collapseSectionSubsection"><i></i>Section
+										Subsection</a>
+								</h5>
+							</div>
+
+
+							<div id="collapseSectionSubsection" class="panel-collapse collapse">
+								<div class="panel-body" id="keywords_panel">
+									<!-- Bench list -->
+									<div class="widget margin-none">
+										<div class="widget-body list bg-gray" id="filtersSectionSubsectionDiv"><ul><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="143(3)"><input type="checkbox" value="143(3)" id="0_143(3)_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_0" class="fa fa-fw fa-square-o "><span hidden="true">143(3)</span></i> 143(3)<span class="badge badge-default">19533</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="271(1)(c)"><input type="checkbox" value="271(1)(c)" id="1_271(1)(c)_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_1" class="fa fa-fw fa-square-o "><span hidden="true">271(1)(c)</span></i> 271(1)(c)<span class="badge badge-default">19362</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="148"><input type="checkbox" value="148" id="2_148_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_2" class="fa fa-fw fa-square-o "><span hidden="true">148</span></i> 148<span class="badge badge-default">16510</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="147"><input type="checkbox" value="147" id="3_147_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_3" class="fa fa-fw fa-square-o "><span hidden="true">147</span></i> 147<span class="badge badge-default">16405</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="68"><input type="checkbox" value="68" id="4_68_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_4" class="fa fa-fw fa-square-o "><span hidden="true">68</span></i> 68<span class="badge badge-default">13987</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="14A"><input type="checkbox" value="14A" id="5_14A_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_5" class="fa fa-fw fa-square-o "><span hidden="true">14A</span></i> 14A<span class="badge badge-default">11430</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="263"><input type="checkbox" value="263" id="6_263_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_6" class="fa fa-fw fa-square-o "><span hidden="true">263</span></i> 263<span class="badge badge-default">9776</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="132"><input type="checkbox" value="132" id="7_132_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_7" class="fa fa-fw fa-square-o "><span hidden="true">132</span></i> 132<span class="badge badge-default">8118</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="40(a)(ia)"><input type="checkbox" value="40(a)(ia)" id="8_40(a)(ia)_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_8" class="fa fa-fw fa-square-o "><span hidden="true">40(a)(ia)</span></i> 40(a)(ia)<span class="badge badge-default">8116</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="144"><input type="checkbox" value="144" id="9_144_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_9" class="fa fa-fw fa-square-o "><span hidden="true">144</span></i> 144<span class="badge badge-default">7363</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="142(1)"><input type="checkbox" value="142(1)" id="10_142(1)_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_10" class="fa fa-fw fa-square-o "><span hidden="true">142(1)</span></i> 142(1)<span class="badge badge-default">7011</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="37"><input type="checkbox" value="37" id="11_37_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_11" class="fa fa-fw fa-square-o "><span hidden="true">37</span></i> 37<span class="badge badge-default">6877</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="234B"><input type="checkbox" value="234B" id="12_234B_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_12" class="fa fa-fw fa-square-o "><span hidden="true">234B</span></i> 234B<span class="badge badge-default">6654</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="154"><input type="checkbox" value="154" id="13_154_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_13" class="fa fa-fw fa-square-o "><span hidden="true">154</span></i> 154<span class="badge badge-default">6615</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="153A"><input type="checkbox" value="153A" id="14_153A_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_14" class="fa fa-fw fa-square-o "><span hidden="true">153A</span></i> 153A<span class="badge badge-default">6216</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="133A"><input type="checkbox" value="133A" id="15_133A_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_15" class="fa fa-fw fa-square-o "><span hidden="true">133A</span></i> 133A<span class="badge badge-default">5829</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="133(6)"><input type="checkbox" value="133(6)" id="16_133(6)_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_16" class="fa fa-fw fa-square-o "><span hidden="true">133(6)</span></i> 133(6)<span class="badge badge-default">5797</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="General"><input type="checkbox" value="General" id="17_General_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_17" class="fa fa-fw fa-square-o "><span hidden="true">General</span></i> General<span class="badge badge-default">5759</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="37(1)"><input type="checkbox" value="37(1)" id="18_37(1)_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_18" class="fa fa-fw fa-square-o "><span hidden="true">37(1)</span></i> 37(1)<span class="badge badge-default">5616</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="131"><input type="checkbox" value="131" id="19_131_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_19" class="fa fa-fw fa-square-o "><span hidden="true">131</span></i> 131<span class="badge badge-default">5419</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="11"><input type="checkbox" value="11" id="20_11_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_20" class="fa fa-fw fa-square-o "><span hidden="true">11</span></i> 11<span class="badge badge-default">5242</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="260A"><input type="checkbox" value="260A" id="21_260A_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_21" class="fa fa-fw fa-square-o "><span hidden="true">260A</span></i> 260A<span class="badge badge-default">5103</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="12A"><input type="checkbox" value="12A" id="22_12A_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_22" class="fa fa-fw fa-square-o "><span hidden="true">12A</span></i> 12A<span class="badge badge-default">4798</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="69"><input type="checkbox" value="69" id="23_69_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_23" class="fa fa-fw fa-square-o "><span hidden="true">69</span></i> 69<span class="badge badge-default">4777</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="80HHC"><input type="checkbox" value="80HHC" id="24_80HHC_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_24" class="fa fa-fw fa-square-o "><span hidden="true">80HHC</span></i> 80HHC<span class="badge badge-default">4635</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="115JB"><input type="checkbox" value="115JB" id="25_115JB_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_25" class="fa fa-fw fa-square-o "><span hidden="true">115JB</span></i> 115JB<span class="badge badge-default">4536</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="80IB"><input type="checkbox" value="80IB" id="26_80IB_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_26" class="fa fa-fw fa-square-o "><span hidden="true">80IB</span></i> 80IB<span class="badge badge-default">4531</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="12AA"><input type="checkbox" value="12AA" id="27_12AA_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_27" class="fa fa-fw fa-square-o "><span hidden="true">12AA</span></i> 12AA<span class="badge badge-default">4405</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="139"><input type="checkbox" value="139" id="28_139_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_28" class="fa fa-fw fa-square-o "><span hidden="true">139</span></i> 139<span class="badge badge-default">4362</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="139(1)"><input type="checkbox" value="139(1)" id="29_139(1)_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_29" class="fa fa-fw fa-square-o "><span hidden="true">139(1)</span></i> 139(1)<span class="badge badge-default">4321</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="143(2)"><input type="checkbox" value="143(2)" id="30_143(2)_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_30" class="fa fa-fw fa-square-o "><span hidden="true">143(2)</span></i> 143(2)<span class="badge badge-default">4260</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="32"><input type="checkbox" value="32" id="31_32_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_31" class="fa fa-fw fa-square-o "><span hidden="true">32</span></i> 32<span class="badge badge-default">4219</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="28"><input type="checkbox" value="28" id="32_28_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_32" class="fa fa-fw fa-square-o "><span hidden="true">28</span></i> 28<span class="badge badge-default">4131</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="43B"><input type="checkbox" value="43B" id="33_43B_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_33" class="fa fa-fw fa-square-o "><span hidden="true">43B</span></i> 43B<span class="badge badge-default">4088</span></label></li><li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="145"><input type="checkbox" value="145" id="34_145_Section Subsection" onclick="onChangeOfFilter(this.id)" name="checkbox"><i onclick="sectionSubsection(this.id)" id="sectionSubsection_34" class="fa fa-fw fa-square-o "><span hidden="true">145</span></i> 145<span class="badge badge-default">4009</span></label></li></ul></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				
+				<div class="panel-group accordion accordion-1" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h5 class="panel-title strong">
+									<a class="accordion-new" data-toggle="collapse" data-parent="#accordion" href="#collapseJurisdiction"><i></i>Jurisdiction</a>
+								</h5>
+							</div>
+
+
+							<div id="collapseJurisdiction" class="panel-collapse collapse">
+								<div class="panel-body" id="keywords_panel">
+									<!-- Bench list -->
+									<div class="widget margin-none">
+										<div class="widget-body list bg-gray">
+							<!-- List -->
+							<ul>
+								
+								
+							     
+							     
+							        <li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="Own"> <input type="checkbox" value="Own" id="0_own_Jurisdiction" onclick="onChangeOfFilter(this.id)" name="checkbox"> <!-- Added for Judgments filters and keywords --><i onclick="jurisdiction('own')" id="own" class="fa fa-fw fa-square-o"> <span hidden="true">own</span></i>Own
+										<span class="badge badge-default">0</span>
+								</label></li>
+							     
+							     
+							
+							
+							     
+							     
+							     
+							     <li><label class="checkbox-custom" data-toggle="tooltip" data-original-title="All"> <input type="checkbox" value="All" id="1_Others_Jurisdiction" onclick="onChangeOfFilter(this.id)" name="checkbox"> <!-- Added for Judgments filters and keywords --><i onclick="jurisdiction('all')" id="all" class="fa fa-fw fa-square-o"> <span hidden="true">all</span></i>Others
+										<span class="badge badge-default">280259</span>
+								</label></li>
+							     
+							
+							
+							
+							</ul>
+							<!-- // List END -->
+						</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<div class="widget widget-heading-simple widget-body-white">
+					<div class="separator bottom"></div>
+					<div class="widget widget-heading-simple widget-body-white">
+						<div class="widget-head">
+							<h5>Set Filters</h5>
+						</div>
+						<div class="widget margin-none">
+							<div class="widget-body list bg-gray">
+								<div class="innerAll">
+									<button class="btn btn-default" onclick="clearFilters()" id="clearFilters" name="clearFliters">Clear Filters</button>
+									<button class="btn btn-default" onclick="setFilters('check')" id="clearFilters">Apply Filters</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><div class="widget widget-heading-simple widget-body-white" id="yui_patched_v3_11_0_1_1574921858183_188">
+					<div class="panel-group accordion accordion-1" id="accordion">
+						
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+    </div>
+  </div>
+</div>
+
+
+
+		<div class="tab-pane" id="t6">
+			<div class="cbox"
+				style="height: 400px; padding: 15px; z-index: -1; display: none">
+				<h4>
+					NJRS system is best viewed in: </br> Browser versions:<br />
+					<ul>
+						<li>IE- 11 and above</li>
+						<li>Firefox- 30 and above</li>
+						<li>Chrome- 36 and above</li>
+					</ul>
+
+					Add ons:<br /> JRE 1.6 and above<br />
+
+				</h4>
+			</div>
+		</div>
+
+
+		<footer id="footer">
+			<div class="copy">
+				Income Tax Department, Government of India &copy; Copyright 2015. |
+				Maintained & Powered by NSDL e-Governance Infrastructure Ltd. | <a
+					href="/NJRS/final/website-policy.html" target="_blank">Privacy
+					Policy</a> | <a href="/NJRS/final/website-policy.html" target="_blank">Terms
+					& Conditions</a> | <a href="/NJRS/final/website-policy.html"
+					target="_blank">Hyperlinking Policy</a> <br /> <a
+					href="http://incometaxindia.gov.in/Pages/default.aspx"
+					target="_blank">www.incometaxindia.gov.in</a> | <a target="_blank"
+					href="http://www.itat.nic.in/">www.itat.nic.in</a> | <a
+					target="_blank" href="http://aarrulings.in/">www.aarrulings.in</a>
+				| <a target="_blank" href="http://judis.nic.in/">www.judis.nic.in</a>
+				| <a href="http://www.indiacode.nic.in/" target="_blank">www.indiacode.nic.in</a>
+				| <a target="_blank" href="http://indiancourts.nic.in/content.htm">www.indiancourts.nic.in</a>
+				| <a target="_blank" href="http://india.gov.in/">www.india.gov.in</a>|
+				<a target="_blank" href="#" data-toggle="modal"
+					data-target="#myModal" id="comp" onclick="compB(); ">Browser
+					Compatibilty</a> | Technical Helpdesk: (022) 40904945,
+				njrs_support(at)nsdl.co.in
+			</div>
+
+			<!--  End Copyright Line -->
+	</div>
+	</footer>
+
+
+</body>
+</html>
+
